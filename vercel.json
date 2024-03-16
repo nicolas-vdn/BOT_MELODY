@@ -15,7 +15,7 @@
     "crons": [
         {
         "path": "/cron.ts",
-        "schedule": "0 */10 * * * *"
+        "schedule": "*/10 * * * *"
       }
     ]
 }
