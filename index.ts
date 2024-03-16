@@ -14,10 +14,10 @@ if (!client) {
 client.on("ready", () => {
     client.user?.setPresence({
         activities: [
-        {
-            name: 'test Kald et Alexis',
-            type: ActivityType.Playing,
-        },
+            {
+                name: 'test Kald et Alexis',
+                type: ActivityType.Playing,
+            },
         ],
         status: 'online'
     });
