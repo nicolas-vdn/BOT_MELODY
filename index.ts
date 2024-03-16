@@ -15,7 +15,7 @@ client.on("ready", () => {
     client.user?.setPresence({
         activities: [
         {
-            name: 'coucou Alexis',
+            name: 'test Kald et Alexis',
             type: ActivityType.Playing,
         },
         ],
