@@ -1,4 +1,4 @@
-import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+const { SlashCommandBuilder } = require("discord.js");
 
 const genres = [
     { name: 'Action', value: 'Action' },
@@ -56,7 +56,7 @@ module.exports = {
             .addChoices(
                 ...genres
             )),
-    async execute(interaction: ChatInputCommandInteraction) {
+    async execute(interaction) {
         await interaction.reply('Commande reçue !');
     },
     async autocomplete() {
