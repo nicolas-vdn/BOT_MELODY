@@ -1,11 +1,8 @@
-import { ActivityType, Events, IntentsBitField, Routes } from "discord.js";
+import { ActivityType, Events, IntentsBitField } from "discord.js";
 import * as dotenv from "dotenv";
 import MyClient from "./MyClient";
 
 dotenv.config({path: `${__dirname}/.env`});
-
-const PREFIX = '/';
-const commandes = ['add-film']
 
 const client = new MyClient({
     intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.MessageContent, IntentsBitField.Flags.GuildIntegrations],
