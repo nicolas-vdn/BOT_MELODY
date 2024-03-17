@@ -68,7 +68,7 @@ module.exports = {
         return
         }
         try {
-            const {data} = await axios.post('https://melody-back.vercel.app/film', {
+            const response = await axios.post('https://melody-back.vercel.app/film', {
                 nom: nom,
                 image: image,
                 genre: genre,
@@ -79,32 +79,10 @@ module.exports = {
                     'Content-Type': 'application/json'
                 }
             });
-            console.log('Réponse de l', data);
-            await interaction.reply('Commande reçue et données envoyées !');
+            await interaction.reply(`Le film "${response.data.nom}" d'ID ${response.data.id} a bien été ajouté !`);
         } catch (error) {
-            console.log(error)
             await interaction.reply('Une erreur est survenue veuillez contacter les boss du game');
         }
-
-
-
-        // axios({
-        //     method: 'post',
-        //     url: 'https://melody-back.vercel.app/film',
-        //     data: {
-        //         nom: nom,
-        //         image: image,
-        //         genre: genre,
-        //         genre2: genre2,
-        //         genre3: genre3,
-        //     }
-        //   }).then(async (response)=>{
-        //     console.log('Réponse de l', response.data);
-        //     await interaction.reply('Commande reçue et données envoyées !');
-        //   }).catch(async (error)=>{
-        //     global interaction
-        //     await interaction.reply('Une erreur est survenue veuillez contacter les boss du game')
-        //   });
     },
     async autocomplete() {
         return true
