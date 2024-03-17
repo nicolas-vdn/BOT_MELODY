@@ -1,4 +1,5 @@
-import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+const { ChatInputCommandInteraction, SlashCommandBuilder } = require("discord.js");
+const axios = require("axios");
 
 const genres = [
     { name: 'Action', value: 'Action' },
@@ -56,8 +57,54 @@ module.exports = {
             .addChoices(
                 ...genres
             )),
-    async execute(interaction: ChatInputCommandInteraction) {
-        await interaction.reply('Commande reçue !');
+    async execute(interaction) {
+        const nom = interaction.options.getString('nom')
+        const image = interaction.options.getString('image')
+        const genre = interaction.options.getString('genre')
+        const genre2 = interaction.options.getString('genre2')
+        const genre3 = interaction.options.getString('genre3')
+        if (!nom || !image || !genre){
+            await interaction.reply('parametre invalide')
+        return
+        }
+        try {
+            const {data} = await axios.post('https://melody-back.vercel.app/film', {
+                nom: nom,
+                image: image,
+                genre: genre,
+                genre2: genre2,
+                genre3: genre3,
+                }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log('Réponse de l', data);
+            await interaction.reply('Commande reçue et données envoyées !');
+        } catch (error) {
+            console.log(error)
+            await interaction.reply('Une erreur est survenue veuillez contacter les boss du game');
+        }
+
+
+
+        // axios({
+        //     method: 'post',
+        //     url: 'https://melody-back.vercel.app/film',
+        //     data: {
+        //         nom: nom,
+        //         image: image,
+        //         genre: genre,
+        //         genre2: genre2,
+        //         genre3: genre3,
+        //     }
+        //   }).then(async (response)=>{
+        //     console.log('Réponse de l', response.data);
+        //     await interaction.reply('Commande reçue et données envoyées !');
+        //   }).catch(async (error)=>{
+        //     global interaction
+        //     await interaction.reply('Une erreur est survenue veuillez contacter les boss du game')
+        //   });
     },
     async autocomplete() {
         return true
