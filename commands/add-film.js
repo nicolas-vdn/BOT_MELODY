@@ -3,27 +3,27 @@ const axios = require("axios");
 
 const genres = [
     { name: 'Action', value: 'Action' },
-    { name: 'Comédie', value: 'Comédie' },
-    { name: 'Drame', value: 'Drame' },
-    { name: 'Horreur', value: 'Horreur' },
-    { name: 'Policier', value: 'Policier' },
+    { name: 'Animation', value: 'Animation' },
+    { name: 'Anticipation', value: 'Anticipation' },
     { name: 'Amour', value: 'Amour' },
     { name: 'Aventure', value: 'Aventure' },
+    { name: 'Biopic', value: 'Biopic' },
+    { name: 'Cape et d\'épée', value: 'Cape et d\'épée' },
+    { name: 'Casse', value: 'Casse' },
+    { name: 'Catastrophe', value: 'Catastrophe' },
+    { name: 'Comédie', value: 'Comédie' },
     { name: 'Criminel', value: 'Criminel' },
+    { name: 'Drame', value: 'Drame' },
     { name: 'Dystopie', value: 'Dystopie' },
+    { name: 'Fantastique', value: 'Fantastique' },
     { name: 'Fantasy', value: 'Fantasy' },
+    { name: 'Horreur', value: 'Horreur' },
+    { name: 'Policier', value: 'Policier' },
     { name: 'Péplum', value: 'Péplum' },
     { name: 'Science-Fiction', value: 'Science-Fiction' },
     { name: 'Thriller', value: 'Thriller' },
     { name: 'Western', value: 'Western' },
-    { name: 'Anticipation', value: 'Anticipation' },
-    { name: 'Casse', value: 'Casse' },
-    { name: 'Catastrophe', value: 'Catastrophe' },
-    { name: 'Cape et d\'épée', value: 'Cape et d\'épée' },
-    { name: 'Fantastique', value: 'Fantastique' },
-    { name: 'Biopic', value: 'Biopic' },
     { name: 'X', value: 'X' },
-    { name: 'Animation', value: 'Animation' }
 ]
 
 module.exports = {
