@@ -37,7 +37,7 @@ client.on("ready", () => {
     client.user?.setPresence({
         activities: [
             {
-                name: 'CC nicolas',
+                name: '/add-film',
                 type: ActivityType.Listening,
             },
         ],
