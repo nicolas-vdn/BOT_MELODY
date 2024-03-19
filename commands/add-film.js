@@ -58,6 +58,7 @@ module.exports = {
                 ...genres
             )),
     async execute(interaction) {
+        await interaction.deferReply({ ephemeral: true });
         const nom = interaction.options.getString('nom')
         const image = interaction.options.getString('image')
         const genre = interaction.options.getString('genre')
@@ -79,9 +80,9 @@ module.exports = {
                     'Content-Type': 'application/json'
                 }
             });
-            await interaction.reply(`Le film "${response.data.nom}" d'ID ${response.data.id} a bien été ajouté !`);
+            await interaction.editReply(`Le film "${response.data.nom}" d'ID ${response.data.id} a bien été ajouté !`);
         } catch (error) {
-            await interaction.reply('Une erreur est survenue veuillez contacter les boss du game');
+            await interaction.editReply('Une erreur est survenue veuillez contacter les boss du game');
         }
     },
     async autocomplete() {
