@@ -58,16 +58,25 @@ module.exports = {
                 ...genres
             )),
     async execute(interaction) {
-        await interaction.deferReply({ ephemeral: true });
-        const nom = interaction.options.getString('nom')
-        const image = interaction.options.getString('image')
-        const genre = interaction.options.getString('genre')
-        const genre2 = interaction.options.getString('genre2')
-        const genre3 = interaction.options.getString('genre3')
+        await interaction.deferReply();
+        const nom = interaction.options.getString('nom');
+        const image = interaction.options.getString('image');
+        const genre = interaction.options.getString('genre');
+        const genre2 = interaction.options.getString('genre2');
+        const genre3 = interaction.options.getString('genre3');
+        const userId = interaction.user.id;
+
+        const userFilms = await axios.get(`https://melody-back.vercel.app/film/${userId}`);
+        if (userFilms.data.length === 10) {
+            await interaction.reply('Vous avez atteint la limite de films à ajouter !');
+            return;
+        }
+
         if (!nom || !image || !genre){
-            await interaction.reply('parametre invalide')
+            await interaction.reply('Paramètres invalides !')
         return
         }
+
         try {
             const response = await axios.post('https://melody-back.vercel.app/film', {
                 nom: nom,
@@ -75,6 +84,7 @@ module.exports = {
                 genre: genre,
                 genre2: genre2,
                 genre3: genre3,
+                userId: userId,
                 }, {
                 headers: {
                     'Content-Type': 'application/json'
