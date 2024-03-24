@@ -66,15 +66,15 @@ module.exports = {
         const genre3 = interaction.options.getString('genre3');
         const userId = interaction.user.id;
 
-        const userFilms = await axios.get(`https://melody-back.vercel.app/film/${userId}`);
+        const userFilms = await axios.get(`https://melody-back.vercel.app/film/user/${userId}`);
         if (userFilms.data.length === 10) {
             await interaction.reply('Vous avez atteint la limite de films à ajouter !');
             return;
         }
 
-        if (!nom || !image || !genre){
+        if (!nom || !image || !genre) {
             await interaction.reply('Paramètres invalides !')
-        return
+            return
         }
 
         try {
