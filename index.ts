@@ -1,4 +1,4 @@
-import { ActivityType, EmbedBuilder, Events, IntentsBitField, messageLink } from "discord.js";
+import { ActivityType, Events, IntentsBitField } from "discord.js";
 import * as dotenv from "dotenv";
 import MyClient from "./MyClient";
 
