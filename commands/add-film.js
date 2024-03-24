@@ -57,7 +57,7 @@ module.exports = {
             .addChoices(
                 ...genres
             )),
-    async execute(interaction) {
+    async execute(interaction, client) {
         await interaction.deferReply();
         const nom = interaction.options.getString('nom');
         const image = interaction.options.getString('image');
