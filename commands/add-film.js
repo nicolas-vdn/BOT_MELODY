@@ -85,9 +85,6 @@ module.exports = {
             console.log(error)
             await interaction.reply('Une erreur est survenue veuillez contacter les boss du game');
         }
-
-
-
         // axios({
         //     method: 'post',
         //     url: 'https://melody-back.vercel.app/film',
